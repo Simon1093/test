@@ -1,54 +1,41 @@
+<?php
+session_start();
+?>
 <html>
-<head>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/util.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link href="css/bootstrap.css" rel="stylesheet">
-</head>
+
+<?php include_once 'templates/libs.php' ?>
+<style>
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-5 offset-4">
-            <button type="button" id="modalBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
-            <form method="post" action="test.php" id="form123">
-                <div class="form-group">
-                    <label>Login</label>
-                    <input type="text" name="login" class="form-control" placeholder="Enter login">
-                    <label class="mt-2">Page</label>
-                    <input type="password" name="password" class="form-control" placeholder="Enter password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
+<div style="z-index: 200" class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <?php include_once 'templates/header.php' ?>
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">My project</h1>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the
+            text, and add your own fullscreen background photo to make it your own.</p>
+        <p class="lead">
+            <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+            <a href="#" class="btn btn-lg btn-secondary">About</a>
+        </p>
+    </main>
+
+    <?php include_once 'templates/footer.php' ?>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div><script src="js/modal.js"></script>
-        </div>
-    </div>
-</div>
-</body>
 <script>
-    setTimeout(function () {
-        $('#exampleModal').modal('show');
-    }, 2000);
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
 </script>
+
+<div id="particles-js"></div>
+
+</body>
 </html>
+
+
