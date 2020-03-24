@@ -1,15 +1,19 @@
 const app = new Vue({
     el: '#app',
     data: {
-        goods: [],
-        message: 'Привет, Vue!',
-        name: 'John'
+        userLink: null,
+        userInfo: {
+            first_name: null,
+            last_name: null,
+            city: null,
+            photo: null
+        }
     },
     methods: {
-        getGoods: function () {
+        getUser: function () {
             var vm = this;
-            axios.post("/ajax/getGoods.php").then(function (payload) {
-                vm.goods = payload.data;
+            axios.post("/ajax/getVkUser.php", {link: this.userLink}).then(function (payload) {
+                vm.userInfo = payload.data;
             })
         }
     }
